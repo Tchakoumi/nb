@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "(.*)\\.nomadbraid\\.com"
+        }
+      ],
+      "destination": "https://$1.nomadbraid.fr/$2",
+      "permanent": true
+    }
+  ]
+}
