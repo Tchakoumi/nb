@@ -1,0 +1,97 @@
+{
+  "app.title": "Nomad Braid",
+  "app.tagline": "Afro hair, braids, wigs, nails & makeup — at home or in-salon.",
+  "app.cta": "Join the waitlist",
+
+  "nav.theme.light": "Light",
+  "nav.theme.dark": "Dark",
+  "nav.theme.system": "System",
+  "nav.language.en": "English",
+  "nav.language.fr": "Français",
+
+  "section.hero.title": "Nomad Braid",
+  "section.hero.subtitle": "We bring curated afro hair professionals to your home or favorite salon, at discovery prices.",
+
+  "section.why.title": "Why Nomad Braid",
+  "section.why.body": "Nomad Braid is a popup service that lets you try new braiders, wig makers, nail artists and makeup artists — safely, conveniently, and at discovery prices. Tell us how you dress your hair today so we can craft the right launch for you.",
+
+  "form.stepIndicator.personal": "Step 1 of 2 · About you",
+  "form.stepIndicator.dressing": "Step 2 of 2 · Your dressing habits",
+
+  "form.personal.firstName.label": "First name",
+  "form.personal.lastName.label": "Last name",
+  "form.personal.gender.label": "Gender",
+  "form.personal.gender.male": "Male",
+  "form.personal.gender.female": "Female",
+  "form.personal.gender.nb": "Non-binary",
+  "form.personal.gender.other": "Other",
+  "form.personal.email.label": "Email",
+  "form.personal.phone.label": "Phone number",
+  "form.personal.phone.helper": "French number — enter 9 digits (e.g. 751 321 131).",
+  "form.personal.isWhatsapp.label": "This is my WhatsApp number",
+  "form.personal.town.label": "Town / City",
+  "form.personal.town.placeholder": "Start typing to search…",
+
+  "form.dressing.frequency.label": "How frequent do you dress your hair?",
+  "form.dressing.frequency.every_4_weeks": "Every 4 weeks",
+  "form.dressing.frequency.every_3_weeks": "Every 3 weeks",
+  "form.dressing.frequency.every_2_weeks": "Every 2 weeks",
+  "form.dressing.frequency.gt_4_weeks": "More than 4 weeks",
+
+  "form.dressing.cost.label": "Average dressing cost per session",
+  "form.dressing.cost.none": "I don’t pay / I do it myself",
+  "form.dressing.cost.10_40": "10–40 €",
+  "form.dressing.cost.40_80": "40–80 €",
+  "form.dressing.cost.80_120": "80–120 €",
+  "form.dressing.cost.gt_120": ">120 €",
+
+  "form.dressing.status.label": "Your current status",
+  "form.dressing.status.student_no_work": "Student (no work yet)",
+  "form.dressing.status.student_alternance": "Student (alternance)",
+  "form.dressing.status.independent": "Independent",
+  "form.dressing.status.worker": "Worker",
+  "form.dressing.status.job_search": "Searching for work",
+
+  "form.dressing.dressesToo.label": "Do you dress others too?",
+  "form.dressing.dressesToo.no": "No, I don't",
+  "form.dressing.dressesToo.fulltime": "Yes, full time",
+  "form.dressing.dressesToo.side": "Yes, as a side gig",
+  "form.dressing.dressesToo.fill": "Yes, just to fill month ends",
+
+  "form.dressing.whoDresses.label": "Who usually dresses you?",
+  "form.dressing.whoDresses.relative": "Relative / friend",
+  "form.dressing.whoDresses.salon": "Salon",
+  "form.dressing.whoDresses.tiktok": "Search on TikTok",
+  "form.dressing.whoDresses.instagram": "Search on Instagram",
+
+  "form.actions.continue": "Continue",
+  "form.actions.registerToWaitlist": "Register to waiting list now",
+  "form.actions.next": "Next",
+  "form.actions.back": "Back",
+  "form.actions.submit": "Submit",
+  "form.actions.startAgain": "Start again",
+
+  "form.validation.required": "This field is required.",
+  "form.validation.email": "Please enter a valid email.",
+  "form.validation.emailDomainInvalid": "This email domain doesn't seem to exist. Check for typos.",
+  "form.validation.emailExists": "This email is already registered.",
+  "form.validation.phone": "Please enter a valid phone number.",
+  "form.validation.phoneExists": "This phone number is already registered.",
+  "form.validation.phoneValid": "Valid number",
+
+  "state.success.title": "Welcome to the family!",
+  "state.success.body": "Your spot is saved. We'll let you know as soon as we go live, with early access and special launch offers.",
+  "state.success.followPrompt": "While you wait, follow our progress on these platforms.",
+  "state.duplicate.title": "You're already on the list",
+  "state.duplicate.body": "This email or phone number has already been registered.",
+  "state.error.title": "Something went wrong",
+  "state.error.body": "Please try again in a moment.",
+
+  "social.followUs": "Follow Nomad Braid",
+  "social.instagram": "Instagram",
+  "social.tiktok": "TikTok",
+  "social.whatsapp": "WhatsApp",
+
+  "footer.copyright": "Nomad Braid. All rights reserved."
+}
+

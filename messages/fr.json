@@ -1,0 +1,97 @@
+{
+  "app.title": "Nomad Braid",
+  "app.tagline": "Coiffure afro, tresses, perruques, ongles & makeup — à domicile ou en salon.",
+  "app.cta": "Rejoindre la liste d’attente",
+
+  "nav.theme.light": "Clair",
+  "nav.theme.dark": "Sombre",
+  "nav.theme.system": "Système",
+  "nav.language.en": "English",
+  "nav.language.fr": "Français",
+
+  "section.hero.title": "Nomad Braid",
+  "section.hero.subtitle": "Nous faisons venir chez vous, ou dans votre salon préféré, des pros de la coiffure afro soigneusement sélectionnés, à des prix découverte.",
+
+  "section.why.title": "Pourquoi Nomad Braid",
+  "section.why.body": "Nomad Braid est un service popup qui vous permet d’essayer de nouvelles tresseuses, créatrices de perruques, pro des ongles et du makeup — en toute sécurité, facilement, et à des prix découverte. Dites-nous comment vous vous coiffez aujourd’hui pour que l’on prépare un lancement qui vous ressemble.",
+
+  "form.stepIndicator.personal": "Étape 1 sur 2 · À propos de vous",
+  "form.stepIndicator.dressing": "Étape 2 sur 2 · Vos habitudes de coiffure",
+
+  "form.personal.firstName.label": "Prénom",
+  "form.personal.lastName.label": "Nom",
+  "form.personal.gender.label": "Genre",
+  "form.personal.gender.male": "Homme",
+  "form.personal.gender.female": "Femme",
+  "form.personal.gender.nb": "Non-binaire",
+  "form.personal.gender.other": "Autre",
+  "form.personal.email.label": "Email",
+  "form.personal.phone.label": "Numéro de téléphone",
+  "form.personal.phone.helper": "Numéro français — entrez 9 chiffres (ex. 751 321 131).",
+  "form.personal.isWhatsapp.label": "C’est mon numéro WhatsApp",
+  "form.personal.town.label": "Ville",
+  "form.personal.town.placeholder": "Commencez à taper pour rechercher…",
+
+  "form.dressing.frequency.label": "À quelle fréquence vous coiffez-vous ?",
+  "form.dressing.frequency.every_4_weeks": "Toutes les 4 semaines",
+  "form.dressing.frequency.every_3_weeks": "Toutes les 3 semaines",
+  "form.dressing.frequency.every_2_weeks": "Toutes les 2 semaines",
+  "form.dressing.frequency.gt_4_weeks": "Plus de 4 semaines",
+
+  "form.dressing.cost.label": "Coût moyen par prestation",
+  "form.dressing.cost.none": "Je ne paie pas / je le fais moi-même",
+  "form.dressing.cost.10_40": "10–40 €",
+  "form.dressing.cost.40_80": "40–80 €",
+  "form.dressing.cost.80_120": "80–120 €",
+  "form.dressing.cost.gt_120": ">120 €",
+
+  "form.dressing.status.label": "Votre situation actuelle",
+  "form.dressing.status.student_no_work": "Étudiant·e (sans travail)",
+  "form.dressing.status.student_alternance": "Étudiant·e (en alternance)",
+  "form.dressing.status.independent": "Indépendant·e",
+  "form.dressing.status.worker": "Salarié·e",
+  "form.dressing.status.job_search": "En recherche d’emploi",
+
+  "form.dressing.dressesToo.label": "Vous coiffez aussi d’autres personnes ?",
+  "form.dressing.dressesToo.no": "Non, je ne coiffe pas",
+  "form.dressing.dressesToo.fulltime": "Oui, à plein temps",
+  "form.dressing.dressesToo.side": "Oui, en side gig",
+  "form.dressing.dressesToo.fill": "Oui, juste pour arrondir les fins de mois",
+
+  "form.dressing.whoDresses.label": "Qui vous coiffe le plus souvent ?",
+  "form.dressing.whoDresses.relative": "Proche / ami·e",
+  "form.dressing.whoDresses.salon": "Salon",
+  "form.dressing.whoDresses.tiktok": "Recherche sur TikTok",
+  "form.dressing.whoDresses.instagram": "Recherche sur Instagram",
+
+  "form.actions.continue": "Continuer",
+  "form.actions.registerToWaitlist": "S'inscrire à la liste d'attente",
+  "form.actions.next": "Suivant",
+  "form.actions.back": "Retour",
+  "form.actions.submit": "Envoyer",
+  "form.actions.startAgain": "Recommencer",
+
+  "form.validation.required": "Ce champ est obligatoire.",
+  "form.validation.email": "Veuillez entrer un email valide.",
+  "form.validation.emailDomainInvalid": "Ce domaine email ne semble pas exister. Vérifiez les fautes de frappe.",
+  "form.validation.emailExists": "Cet email est déjà enregistré.",
+  "form.validation.phone": "Veuillez entrer un numéro valide.",
+  "form.validation.phoneExists": "Ce numéro est déjà enregistré.",
+  "form.validation.phoneValid": "Numéro valide",
+
+  "state.success.title": "Bienvenue dans la famille !",
+  "state.success.body": "Votre place est réservée. On vous préviendra dès le lancement, avec un accès prioritaire et des offres de lancement exclusives.",
+  "state.success.followPrompt": "En attendant, suivez notre aventure sur ces plateformes.",
+  "state.duplicate.title": "Vous êtes déjà inscrit·e",
+  "state.duplicate.body": "Cet email ou ce numéro a déjà été enregistré.",
+  "state.error.title": "Un problème est survenu",
+  "state.error.body": "Veuillez réessayer dans quelques instants.",
+
+  "social.followUs": "Suivez Nomad Braid",
+  "social.instagram": "Instagram",
+  "social.tiktok": "TikTok",
+  "social.whatsapp": "WhatsApp",
+
+  "footer.copyright": "Nomad Braid. Tous droits réservés."
+}
+
