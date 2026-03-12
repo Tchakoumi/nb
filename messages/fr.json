@@ -10,10 +10,10 @@
   "nav.language.fr": "Français",
 
   "section.hero.title": "Nomad Braid",
-  "section.hero.subtitle": "Nous faisons venir chez vous, ou dans votre salon préféré, des pros de la coiffure afro soigneusement sélectionnés, à des prix découverte.",
+  "section.hero.subtitle": "Lors de chaque événement, Nomad Braid réunit des coiffeurs et coiffeuses spécialisés dans les techniques de coiffure afro de votre ville, soigneusement sélectionnés pour vous offrir une expérience capillaire de qualité à prix découverte.",
 
   "section.why.title": "Pourquoi Nomad Braid",
-  "section.why.body": "Nomad Braid est un service popup qui vous permet d’essayer de nouvelles tresseuses, créatrices de perruques, pro des ongles et du makeup — en toute sécurité, facilement, et à des prix découverte. Dites-nous comment vous vous coiffez aujourd’hui pour que l’on prépare un lancement qui vous ressemble.",
+  "section.why.body": "Nomad Braid est un événement capillaire pop-up qui met en lumière les prestataires spécialisés dans les techniques de coiffure afro et valorise le savoir-faire capillaire de notre communauté. Dans chaque ville, vous pouvez venir vous faire coiffer, découvrir de nouveaux talents et rencontrer des marques de la communauté. Dites-nous comment vous vous coiffez aujourd’hui et soyez parmi les premiers informés du prochain événement Nomad Braid dans votre ville.",
 
   "form.stepIndicator.personal": "Étape 1 sur 2 · À propos de vous",
   "form.stepIndicator.dressing": "Étape 2 sur 2 · Vos habitudes de coiffure",
@@ -91,7 +91,10 @@
   "social.instagram": "Instagram",
   "social.tiktok": "TikTok",
   "social.whatsapp": "WhatsApp",
-
+ 
+  "footer.legal.mentions": "Mentions légales",
+  "footer.legal.privacy": "Politique de confidentialité",
+  "footer.legal.terms": "CGU",
   "footer.copyright": "Nomad Braid. Tous droits réservés."
 }
 

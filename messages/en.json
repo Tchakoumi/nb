@@ -10,10 +10,10 @@
   "nav.language.fr": "Français",
 
   "section.hero.title": "Nomad Braid",
-  "section.hero.subtitle": "We bring curated afro hair professionals to your home or favorite salon, at discovery prices.",
+  "section.hero.subtitle": "At each event, Nomad Braid brings together afro hair specialists from your city, carefully selected to offer you a high-quality hair experience at discovery prices.",
 
   "section.why.title": "Why Nomad Braid",
-  "section.why.body": "Nomad Braid is a popup service that lets you try new braiders, wig makers, nail artists and makeup artists — safely, conveniently, and at discovery prices. Tell us how you dress your hair today so we can craft the right launch for you.",
+  "section.why.body": "Nomad Braid is a pop-up hair event that showcases providers specialized in afro hair techniques and celebrates the hair expertise of our community. In every city, you can come get your hair done, discover new talent and meet brands from the community. Tell us how you style your hair today and be among the first to hear about the next Nomad Braid event in your city.",
 
   "form.stepIndicator.personal": "Step 1 of 2 · About you",
   "form.stepIndicator.dressing": "Step 2 of 2 · Your dressing habits",
@@ -91,7 +91,10 @@
   "social.instagram": "Instagram",
   "social.tiktok": "TikTok",
   "social.whatsapp": "WhatsApp",
-
+ 
+  "footer.legal.mentions": "Legal notice",
+  "footer.legal.privacy": "Privacy policy",
+  "footer.legal.terms": "Terms of use",
   "footer.copyright": "Nomad Braid. All rights reserved."
 }
 

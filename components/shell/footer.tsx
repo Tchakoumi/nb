@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useIntl } from "react-intl";
 import { SocialLinks } from "./social-links";
 
@@ -26,6 +27,28 @@ export function Footer() {
           <p className="text-sm text-muted-foreground">
             {intl.formatMessage({ id: "footer.copyright" })}
           </p>
+          <div className="mt-2 flex flex-wrap items-center justify-center gap-3 text-xs text-muted-foreground md:justify-start">
+            <Link
+              href="/mentions-legales"
+              className="hover:text-primary underline-offset-4 hover:underline"
+            >
+              {intl.formatMessage({ id: "footer.legal.mentions" })}
+            </Link>
+            <span className="hidden text-border md:inline">•</span>
+            <Link
+              href="/politique-de-confidentialite"
+              className="hover:text-primary underline-offset-4 hover:underline"
+            >
+              {intl.formatMessage({ id: "footer.legal.privacy" })}
+            </Link>
+            <span className="hidden text-border md:inline">•</span>
+            <Link
+              href="/cgu"
+              className="hover:text-primary underline-offset-4 hover:underline"
+            >
+              {intl.formatMessage({ id: "footer.legal.terms" })}
+            </Link>
+          </div>
         </div>
         <SocialLinks />
       </div>

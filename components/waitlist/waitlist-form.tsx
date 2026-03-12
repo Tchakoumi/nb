@@ -23,6 +23,7 @@ import {
 import { cn } from "@/lib/utils";
 import { usePersistedState } from "@/lib/use-persisted-state";
 import { useHashStep } from "@/lib/use-hash-step";
+import { useSearchParams, usePathname, useRouter } from "next/navigation";
 
 const VALID_STEPS = ["read", "personal", "dressing", "done"] as const;
 type Step = (typeof VALID_STEPS)[number];
@@ -63,6 +64,9 @@ const initialState: FormState = {
 
 export function WaitlistForm() {
   const intl = useIntl();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const router = useRouter();
   const [step, setStep] = useHashStep<Step>("read", VALID_STEPS);
   const [form, setForm, clearForm] = usePersistedState<FormState>(
     "nb:waitlist:form",
@@ -81,6 +85,22 @@ export function WaitlistForm() {
 
   const isEmailValid = isValidEmail(form.email);
   const isPhoneValid = isValidFrenchPhone(form.phone);
+
+  // Handle explicit reset from header logo (?reset=1)
+  useEffect(() => {
+    const reset = searchParams.get("reset");
+    if (reset !== "1") return;
+
+    clearForm();
+    clearSubmitStatus();
+    setStep("read");
+
+    // Clean the URL so refreshes don't keep resetting
+    const newSearch = new URLSearchParams(searchParams.toString());
+    newSearch.delete("reset");
+    const queryString = newSearch.toString();
+    router.replace(queryString ? `${pathname}?${queryString}` : pathname);
+  }, [searchParams, pathname, router, clearForm, clearSubmitStatus, setStep]);
 
   // Clear duplicate error immediately when user types
   useEffect(() => {
@@ -331,11 +351,11 @@ export function WaitlistForm() {
     return (
       <div className="w-full flex flex-col items-center justify-center text-center py-4 md:py-6">
         <Image
-          src="/icon.png"
+          src="/icon-header.png"
           alt="Nomad Braid"
-          width={80}
-          height={80}
-          className="mb-5 h-20 w-auto mx-auto"
+          width={40}
+          height={50}
+          className="mb-5 h-12 w-auto mx-auto"
         />
         <h1
           className="text-balance text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl"
@@ -384,11 +404,11 @@ export function WaitlistForm() {
           >
             <div className="space-y-4 pb-8 pt-2 md:space-y-3 md:pb-10 md:pt-0">
               <Image
-                src="/icon.png"
+                src="/icon-header.png"
                 alt="Nomad Braid"
-                width={56}
-                height={56}
-                className="h-14 w-auto"
+                width={32}
+                height={40}
+                className="h-10 w-auto"
               />
               <h1 className="text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl">
                 {intl.formatMessage({ id: "section.hero.title" })}
@@ -412,12 +432,69 @@ export function WaitlistForm() {
             className="rounded-2xl border border-border/60 bg-card px-4 py-6 md:p-7 w-full transition-colors duration-300 hover:border-foreground/30"
           >
             <div className="space-y-5">
-              <div className="space-y-3 rounded-2xl bg-muted/30 p-5 backdrop-blur-sm md:p-6">
-                <h3 className="text-sm font-bold uppercase tracking-widest text-primary">
-                  {intl.formatMessage({ id: "section.why.title" })}
-                </h3>
-                <p className="leading-relaxed text-muted-foreground">
-                  {intl.formatMessage({ id: "section.why.body" })}
+              <div className="space-y-4 rounded-2xl bg-muted/30 p-5 backdrop-blur-sm md:p-6">
+                <div className="space-y-3">
+                  <h3 className="text-sm font-bold uppercase tracking-widest text-primary">
+                    {intl.formatMessage({ id: "section.why.title" })}
+                  </h3>
+                  <p className="leading-relaxed text-muted-foreground">
+                    {intl.formatMessage({ id: "section.why.body" })}
+                  </p>
+                </div>
+                <p className="text-xs leading-relaxed text-muted-foreground">
+                  {intl.locale === "fr" ? (
+                    <>
+                      En continuant, vous acceptez les{" "}
+                      <a
+                        href="/cgu"
+                        className="underline underline-offset-4 hover:text-primary"
+                      >
+                        Conditions générales d’utilisation
+                      </a>{" "}
+                      et reconnaissez avoir pris connaissance des{" "}
+                      <a
+                        href="/mentions-legales"
+                        className="underline underline-offset-4 hover:text-primary"
+                      >
+                        Mentions légales
+                      </a>{" "}
+                      et de la{" "}
+                      <a
+                        href="/politique-de-confidentialite"
+                        className="underline underline-offset-4 hover:text-primary"
+                      >
+                        Politique de confidentialité
+                      </a>
+                      , y compris l’utilisation de mesures d’audience
+                      obligatoires (Vercel Analytics).
+                    </>
+                  ) : (
+                    <>
+                      By continuing, you accept the{" "}
+                      <a
+                        href="/cgu"
+                        className="underline underline-offset-4 hover:text-primary"
+                      >
+                        Terms of Use
+                      </a>{" "}
+                      and acknowledge that you have read the{" "}
+                      <a
+                        href="/mentions-legales"
+                        className="underline underline-offset-4 hover:text-primary"
+                      >
+                        Legal Notice
+                      </a>{" "}
+                      and{" "}
+                      <a
+                        href="/politique-de-confidentialite"
+                        className="underline underline-offset-4 hover:text-primary"
+                      >
+                        Privacy Policy
+                      </a>
+                      , including the use of mandatory audience measurement
+                      (Vercel Analytics).
+                    </>
+                  )}
                 </p>
               </div>
               <div className="flex justify-end">
