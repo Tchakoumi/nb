@@ -43,17 +43,18 @@ export async function POST(request: Request) {
     const result = await insertWaitlistEntry(parsed);
 
     if ("inserted" in result && result.inserted) {
-      console.log("[waitlist] Inserted entry:", result.id, "email:", parsed.email);
+      const entryId = result.id!; // present when inserted is true
+      console.log("[waitlist] Inserted entry:", entryId, "email:", parsed.email);
 
       const whatsapp = await sendWelcomeWhatsApp(parsed.phone, parsed.firstName, locale);
 
       let emailResult = null;
       if (whatsapp.sent) {
-        await updateWelcomeTracking(result.id, "whatsapp", "sent");
+        await updateWelcomeTracking(entryId, "whatsapp", "sent");
       } else {
         emailResult = await sendWelcomeEmail(parsed.email, parsed.firstName, locale);
         if (emailResult.sent) {
-          await updateWelcomeTracking(result.id, "email", "sent", emailResult.messageId);
+          await updateWelcomeTracking(entryId, "email", "sent", emailResult.messageId);
         }
       }
 
@@ -85,10 +86,10 @@ export async function POST(request: Request) {
       },
       { status: 201 }
     );
-  } catch (error) {
-    if ((error as { name?: string }).name === "ZodError") {
+  } catch (error: unknown) {
+    if (error != null && typeof error === "object" && "name" in error && error.name === "ZodError" && "issues" in error && Array.isArray(error.issues)) {
       const fieldErrors: Record<string, string> = {};
-      for (const issue of error.issues) {
+      for (const issue of error.issues as Array<{ path: (string | number)[]; message?: string }>) {
         const key = issue.path[0];
         if (typeof key === "string") {
           fieldErrors[key] = issue.message === "invalid-phone" ? "phone" : "invalid";
