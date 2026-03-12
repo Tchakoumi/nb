@@ -1,26 +1,45 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sans);
+  --font-mono: monospace;
+
+  --color-background: var(--nb-background);
+  --color-foreground: var(--nb-foreground);
+
+  --color-primary: var(--nb-terracotta);
+  --color-primary-foreground: #ffffff;
+
+  --color-accent: var(--nb-gold);
+  --color-muted: var(--nb-taupe-light);
+  --color-muted-foreground: var(--nb-taupe-dark);
+  --color-border: var(--nb-border);
+
+  --color-card: var(--nb-background);
+  --color-card-foreground: var(--nb-foreground);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --nb-terracotta: #8d2b01;
+  --nb-gold: #faaf40;
+  --nb-taupe: #edc7b4;
+  --nb-taupe-light: #fdf6f1;
+  --nb-taupe-dark: #8a6a5c;
+  --nb-green-teal: #0d4842;
+  --nb-border: rgba(141, 43, 1, 0.15);
+
+  --nb-background: #ffffff;
+  --nb-foreground: #171717;
+}
+
+.dark {
+  --nb-background: #020617;
+  --nb-foreground: #e5e7eb;
+  --nb-border: rgba(255, 255, 255, 0.15);
+  --nb-taupe-light: #1e1e1e;
+  --nb-taupe-dark: #a0a0a0;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-background text-foreground antialiased;
 }
