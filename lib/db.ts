@@ -110,7 +110,7 @@ export async function insertWaitlistEntry(payload: WaitlistPayload) {
     return { inserted: true, id: rows[0].id as string };
   } catch (error: unknown) {
     // Unique violation on email or phone
-    if (error?.code === "23505") {
+    if (error != null && typeof error === "object" && "code" in error && (error as { code: string }).code === "23505") {
       return { inserted: false, duplicate: true as const };
     }
     throw error;
@@ -141,7 +141,7 @@ export async function listWaitlistEntries(limit = 200): Promise<WaitlistEntry[]>
     throw new Error("Database not configured");
   }
 
-  const rows = await sql<WaitlistEntry[]>`
+  const rows = await sql`
     select
       id,
       created_at,
@@ -167,7 +167,7 @@ export async function listWaitlistEntries(limit = 200): Promise<WaitlistEntry[]>
     limit ${limit}
   `;
 
-  return rows;
+  return rows as WaitlistEntry[];
 }
 
 export async function updateWelcomeTracking(
