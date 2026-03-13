@@ -9,7 +9,6 @@ const requiredServerEnv = [
 const requiredClientEnv = [
   "NEXT_PUBLIC_INSTAGRAM_URL",
   "NEXT_PUBLIC_TIKTOK_URL",
-  "NEXT_PUBLIC_WHATSAPP_URL",
 ] as const;
 
 export function validateEnv() {
