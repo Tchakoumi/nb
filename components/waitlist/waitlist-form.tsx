@@ -466,7 +466,7 @@ export function WaitlistForm() {
                         Politique de confidentialité
                       </a>
                       , y compris l’utilisation de mesures d’audience
-                      obligatoires (Vercel Analytics).
+                      obligatoires.
                     </>
                   ) : (
                     <>
@@ -491,8 +491,7 @@ export function WaitlistForm() {
                       >
                         Privacy Policy
                       </a>
-                      , including the use of mandatory audience measurement
-                      (Vercel Analytics).
+                      , including the use of mandatory audience measurement.
                     </>
                   )}
                 </p>

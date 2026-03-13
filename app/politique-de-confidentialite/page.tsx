@@ -25,7 +25,8 @@ export default function PrivacyPolicyPage() {
           </h2>
           <p className="text-sm leading-relaxed text-muted-foreground">
             Le traitement des données personnelles collectées via le site Nomad
-            Braid est réalisé par <strong>Nomad Braid</strong>.
+            Braid est réalisé par la fondatrice de Nomad Braid, en qualité de{" "}
+            <strong>responsable du traitement</strong>.
           </p>
           <p className="text-sm leading-relaxed text-muted-foreground">
             Pour toute question ou demande relative à vos données personnelles,
@@ -302,7 +303,8 @@ export default function PrivacyPolicyPage() {
           </h3>
           <p className="text-sm leading-relaxed text-muted-foreground">
             Personal data collected through the Nomad Braid website is processed
-            by <strong>Nomad Braid</strong>.
+            by the founder of Nomad Braid acting as the{" "}
+            <strong>data controller</strong>.
           </p>
           <p className="text-sm leading-relaxed text-muted-foreground">
             For any question or request regarding your personal data, you can
