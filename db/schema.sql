@@ -25,7 +25,12 @@ create table if not exists waitlist_entries (
   -- welcome message tracking
   welcome_channel text,           -- 'whatsapp' | 'email' | null (not sent yet)
   welcome_status text,            -- 'sent' | 'delivered' | 'hard_bounce' | 'soft_bounce' | 'invalid_email' | 'blocked' | 'error' | 'spam' | 'unsubscribed'
-  brevo_message_id text           -- Brevo messageId for email webhook correlation
+  brevo_message_id text,          -- Brevo messageId for email webhook correlation
+
+  -- per-channel tracking
+  whatsapp_status text,           -- 'sent' | 'not_whatsapp' | 'api_error' | 'network_error' | 'error'
+  whatsapp_last_error text,       -- last error message from WhatsApp provider, if any
+  email_status text               -- email-specific status, mirroring welcome_status semantics
 );
 
 create unique index if not exists waitlist_entries_email_key on waitlist_entries (email);

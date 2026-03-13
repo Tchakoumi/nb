@@ -43,6 +43,9 @@ export type WaitlistEntry = {
   welcome_channel: WelcomeChannel | null;
   welcome_status: WelcomeStatus | null;
   brevo_message_id: string | null;
+  whatsapp_status: string | null;
+  whatsapp_last_error: string | null;
+  email_status: string | null;
 };
 
 export async function insertWaitlistEntry(payload: WaitlistPayload) {
@@ -182,6 +185,45 @@ export async function updateWelcomeTracking(
     update waitlist_entries
     set welcome_channel = ${channel},
         welcome_status = ${status},
+        brevo_message_id = ${brevoMessageId ?? null}
+    where id = ${entryId}
+  `;
+}
+
+export type WhatsappStatus =
+  | "sent"
+  | "not_whatsapp"
+  | "api_error"
+  | "network_error"
+  | "error";
+
+export async function updateWhatsappTracking(
+  entryId: string,
+  status: WhatsappStatus,
+  lastError?: string | null
+) {
+  if (!sql) throw new Error("Database not configured");
+
+  await sql`
+    update waitlist_entries
+    set whatsapp_status = ${status},
+        whatsapp_last_error = ${lastError ?? null}
+    where id = ${entryId}
+  `;
+}
+
+export type EmailStatus = WelcomeStatus | "error";
+
+export async function updateEmailTracking(
+  entryId: string,
+  status: EmailStatus,
+  brevoMessageId?: string | null
+) {
+  if (!sql) throw new Error("Database not configured");
+
+  await sql`
+    update waitlist_entries
+    set email_status = ${status},
         brevo_message_id = ${brevoMessageId ?? null}
     where id = ${entryId}
   `;

@@ -75,6 +75,21 @@ export type WhatsAppResult =
       detail?: string;
     };
 
+export function mapWhatsAppResultToStatus(
+  result: WhatsAppResult
+): { status: "sent" | "not_whatsapp" | "api_error" | "network_error" | "error"; detail?: string } {
+  if (result.sent) {
+    return { status: "sent" };
+  }
+
+  if (result.reason === "no_api_key") {
+    // Treat missing API key as a generic error for DB tracking purposes.
+    return { status: "error", detail: result.detail };
+  }
+
+  return { status: result.reason, detail: result.detail };
+}
+
 export async function sendWelcomeWhatsApp(
   phone: string,
   firstName: string,

@@ -1,8 +1,13 @@
 import { NextResponse } from "next/server";
 import { headers } from "next/headers";
 import { waitlistSchema } from "@/components/waitlist/validation";
-import { insertWaitlistEntry, updateWelcomeTracking } from "@/lib/db";
-import { sendWelcomeWhatsApp } from "@/lib/whatsapp";
+import {
+  insertWaitlistEntry,
+  updateWelcomeTracking,
+  updateWhatsappTracking,
+  updateEmailTracking,
+} from "@/lib/db";
+import { sendWelcomeWhatsApp, mapWhatsAppResultToStatus } from "@/lib/whatsapp";
 import { sendWelcomeEmail } from "@/lib/email";
 
 export async function POST(request: Request) {
@@ -48,13 +53,29 @@ export async function POST(request: Request) {
 
       const whatsapp = await sendWelcomeWhatsApp(parsed.phone, parsed.firstName, locale);
 
+      const mappedWhatsapp = mapWhatsAppResultToStatus(whatsapp);
+      await updateWhatsappTracking(entryId, mappedWhatsapp.status, mappedWhatsapp.detail);
+
       let emailResult = null;
+
       if (whatsapp.sent) {
+        // WhatsApp successfully sent: keep existing summary behavior.
         await updateWelcomeTracking(entryId, "whatsapp", "sent");
       } else {
-        emailResult = await sendWelcomeEmail(parsed.email, parsed.firstName, locale);
-        if (emailResult.sent) {
-          await updateWelcomeTracking(entryId, "email", "sent", emailResult.messageId);
+        const shouldSendEmailFallback =
+          whatsapp.reason === "not_whatsapp" ||
+          whatsapp.reason === "api_error" ||
+          whatsapp.reason === "network_error";
+
+        if (shouldSendEmailFallback) {
+          emailResult = await sendWelcomeEmail(parsed.email, parsed.firstName, locale);
+
+          if (emailResult.sent) {
+            await updateEmailTracking(entryId, "sent", emailResult.messageId);
+            await updateWelcomeTracking(entryId, "email", "sent", emailResult.messageId);
+          } else {
+            await updateEmailTracking(entryId, "error");
+          }
         }
       }
 
