@@ -46,25 +46,84 @@ export async function checkHasWhatsapp(phone: string): Promise<boolean> {
 const INSTAGRAM_URL = process.env.NEXT_PUBLIC_INSTAGRAM_URL!;
 const TIKTOK_URL = process.env.NEXT_PUBLIC_TIKTOK_URL!;
 
+/** Plain WhatsApp text cannot use markdown links; URLs must appear in full. Strip tracking params so clients linkify reliably. */
+function socialUrlForWhatsApp(url: string): string {
+  try {
+    const u = new URL(url);
+    u.search = "";
+    return u.href.replace(/\/$/, "");
+  } catch {
+    return url;
+  }
+}
+
+/** Fallback if the tap-to-open link is muted (e.g. unsaved business contact). */
+function handleFromSocialUrl(url: string, platform: "instagram" | "tiktok"): string | null {
+  try {
+    const u = new URL(url);
+    const host = u.hostname.replace(/^www\./, "");
+    const segments = u.pathname.split("/").filter(Boolean);
+    if (segments.length === 0) return null;
+    if (host.includes("tiktok")) {
+      const h = segments.find((s) => s.startsWith("@"));
+      return h ?? null;
+    }
+    if (host.includes("instagram")) {
+      const first = segments[0];
+      if (!first || ["p", "reel", "reels", "stories", "explore"].includes(first)) return null;
+      return first.startsWith("@") ? first : `@${first}`;
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 const welcomeMessages: Record<SupportedLocale, (firstName: string) => string> = {
-  en: (firstName) =>
-    `Hey ${firstName}! Welcome to *Nomad Braid* 🎉\n\n` +
-    `Your spot on the waitlist is confirmed. ` +
-    `We'll reach out here as soon as we go live — with early access and exclusive launch offers.\n\n` +
-    `Follow us in the meantime:\n` +
-    `📸 Instagram: ${INSTAGRAM_URL}\n` +
-    `🎵 TikTok: ${TIKTOK_URL}\n\n` +
-    `Save this contact so you can follow our progress too — we'll be posting updates on our WhatsApp status.\n\n` +
-    `Stay tuned!`,
-  fr: (firstName) =>
-    `Hey ${firstName} ! Bienvenue chez *Nomad Braid* 🎉\n\n` +
-    `Ta place sur la liste d'attente est confirmée. ` +
-    `On te contactera ici dès le lancement — avec un accès prioritaire et des offres exclusives.\n\n` +
-    `Suis-nous en attendant :\n` +
-    `📸 Instagram : ${INSTAGRAM_URL}\n` +
-    `🎵 TikTok : ${TIKTOK_URL}\n\n` +
-    `Enregistre ce contact pour suivre notre progression toi aussi — on publiera des nouveautés sur notre statut WhatsApp.\n\n` +
-    `À très vite !`,
+  en: (firstName) => {
+    const ig = socialUrlForWhatsApp(INSTAGRAM_URL);
+    const tt = socialUrlForWhatsApp(TIKTOK_URL);
+    const igHandle = handleFromSocialUrl(INSTAGRAM_URL, "instagram");
+    const ttHandle = handleFromSocialUrl(TIKTOK_URL, "tiktok");
+    const igLine = igHandle
+      ? `📸 Instagram: ${ig}\n${igHandle}`
+      : `📸 Instagram: ${ig}`;
+    const ttLine = ttHandle
+      ? `🎵 TikTok: ${tt}\n${ttHandle}`
+      : `🎵 TikTok: ${tt}`;
+    return (
+      `Hey ${firstName}! Welcome to *Nomad Braid* 🎉\n\n` +
+      `Your spot on the waitlist is confirmed. ` +
+      `We'll reach out here as soon as we go live — with early access and exclusive launch offers.\n\n` +
+      `Follow us in the meantime:\n` +
+      `${igLine}\n` +
+      `${ttLine}\n\n` +
+      `Save this contact so you can follow our progress too — we'll be posting updates on our WhatsApp status.\n\n` +
+      `Stay tuned!`
+    );
+  },
+  fr: (firstName) => {
+    const ig = socialUrlForWhatsApp(INSTAGRAM_URL);
+    const tt = socialUrlForWhatsApp(TIKTOK_URL);
+    const igHandle = handleFromSocialUrl(INSTAGRAM_URL, "instagram");
+    const ttHandle = handleFromSocialUrl(TIKTOK_URL, "tiktok");
+    const igLine = igHandle
+      ? `📸 Instagram : ${ig}\n${igHandle}`
+      : `📸 Instagram : ${ig}`;
+    const ttLine = ttHandle
+      ? `🎵 TikTok : ${tt}\n${ttHandle}`
+      : `🎵 TikTok : ${tt}`;
+    return (
+      `Hey ${firstName} ! Bienvenue chez *Nomad Braid* 🎉\n\n` +
+      `Ta place sur la liste d'attente est confirmée. ` +
+      `On te contactera ici dès le lancement — avec un accès prioritaire et des offres exclusives.\n\n` +
+      `Suis-nous en attendant :\n` +
+      `${igLine}\n` +
+      `${ttLine}\n\n` +
+      `Enregistre ce contact pour suivre notre progression toi aussi — on publiera des nouveautés sur notre statut WhatsApp.\n\n` +
+      `À très vite !`
+    );
+  },
 };
 
 export type WhatsAppResult =
