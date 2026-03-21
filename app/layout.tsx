@@ -3,6 +3,7 @@ import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import { headers, cookies } from "next/headers";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { IntlRootProvider } from "@/components/intl-root-provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { getMessagesForLocale, resolveInitialLocale } from "@/lib/i18n";
@@ -52,6 +53,7 @@ export default async function RootLayout({
           </IntlRootProvider>
         </ThemeProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
