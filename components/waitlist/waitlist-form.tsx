@@ -363,16 +363,10 @@ export function WaitlistForm() {
         >
           {titleMsg}
         </h1>
-        <p
-          className="mt-3 max-w-xl text-base leading-relaxed md:text-lg"
-          style={{ color: "var(--nb-foreground)", opacity: 0.7 }}
-        >
+        <p className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
           {bodyMsg}
         </p>
-        <p
-          className="mt-8 max-w-md text-sm leading-relaxed"
-          style={{ color: "var(--nb-foreground)", opacity: 0.5 }}
-        >
+        <p className="mt-8 max-w-md text-sm leading-relaxed text-muted-foreground">
           {followMsg}
         </p>
         <div className="mt-3">
@@ -405,7 +399,7 @@ export function WaitlistForm() {
             <div className="space-y-4 pb-8 pt-2 md:space-y-3 md:pb-10 md:pt-0">
               <Image
                 src="/icon-header.png"
-                alt="Nomad Braid"
+                alt=""
                 width={32}
                 height={40}
                 className="h-10 w-auto"
@@ -434,9 +428,9 @@ export function WaitlistForm() {
             <div className="space-y-5">
               <div className="space-y-4 rounded-2xl bg-muted/30 p-5 backdrop-blur-sm md:p-6">
                 <div className="space-y-3">
-                  <h3 className="text-sm font-bold uppercase tracking-widest text-primary">
+                  <h2 className="text-sm font-bold uppercase tracking-widest text-foreground">
                     {intl.formatMessage({ id: "section.why.title" })}
-                  </h3>
+                  </h2>
                   <p className="leading-relaxed text-muted-foreground">
                     {intl.formatMessage({ id: "section.why.body" })}
                   </p>
@@ -447,21 +441,21 @@ export function WaitlistForm() {
                       En continuant, vous acceptez les{" "}
                       <a
                         href="/cgu"
-                        className="underline underline-offset-4 hover:text-primary"
+                        className="inline-flex min-h-6 items-center underline underline-offset-4 hover:text-primary"
                       >
                         Conditions générales d’utilisation
                       </a>{" "}
                       et reconnaissez avoir pris connaissance des{" "}
                       <a
                         href="/mentions-legales"
-                        className="underline underline-offset-4 hover:text-primary"
+                        className="inline-flex min-h-6 items-center underline underline-offset-4 hover:text-primary"
                       >
                         Mentions légales
                       </a>{" "}
                       et de la{" "}
                       <a
                         href="/politique-de-confidentialite"
-                        className="underline underline-offset-4 hover:text-primary"
+                        className="inline-flex min-h-6 items-center underline underline-offset-4 hover:text-primary"
                       >
                         Politique de confidentialité
                       </a>
@@ -473,21 +467,21 @@ export function WaitlistForm() {
                       By continuing, you accept the{" "}
                       <a
                         href="/cgu"
-                        className="underline underline-offset-4 hover:text-primary"
+                        className="inline-flex min-h-6 items-center underline underline-offset-4 hover:text-primary"
                       >
                         Terms of Use
                       </a>{" "}
                       and acknowledge that you have read the{" "}
                       <a
                         href="/mentions-legales"
-                        className="underline underline-offset-4 hover:text-primary"
+                        className="inline-flex min-h-6 items-center underline underline-offset-4 hover:text-primary"
                       >
                         Legal Notice
                       </a>{" "}
                       and{" "}
                       <a
                         href="/politique-de-confidentialite"
-                        className="underline underline-offset-4 hover:text-primary"
+                        className="inline-flex min-h-6 items-center underline underline-offset-4 hover:text-primary"
                       >
                         Privacy Policy
                       </a>

@@ -15,7 +15,7 @@ export function Footer() {
           <div className="flex items-center gap-2">
             <Image
               src="/icon-header.png"
-              alt="Nomad Braid"
+              alt=""
               width={20}
               height={25}
               className="h-5 w-auto"
@@ -27,24 +27,24 @@ export function Footer() {
           <p className="text-sm text-muted-foreground">
             {intl.formatMessage({ id: "footer.copyright" })}
           </p>
-          <div className="mt-2 flex flex-wrap items-center justify-center gap-3 text-xs text-muted-foreground md:justify-start">
+          <div className="mt-2 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs text-muted-foreground md:justify-start">
             <Link
               href="/mentions-legales"
-              className="hover:text-primary underline-offset-4 hover:underline"
+              className="inline-flex min-h-6 items-center px-0.5 py-1.5 hover:text-primary underline-offset-4 hover:underline"
             >
               {intl.formatMessage({ id: "footer.legal.mentions" })}
             </Link>
             <span className="hidden text-border md:inline">•</span>
             <Link
               href="/politique-de-confidentialite"
-              className="hover:text-primary underline-offset-4 hover:underline"
+              className="inline-flex min-h-6 items-center px-0.5 py-1.5 hover:text-primary underline-offset-4 hover:underline"
             >
               {intl.formatMessage({ id: "footer.legal.privacy" })}
             </Link>
             <span className="hidden text-border md:inline">•</span>
             <Link
               href="/cgu"
-              className="hover:text-primary underline-offset-4 hover:underline"
+              className="inline-flex min-h-6 items-center px-0.5 py-1.5 hover:text-primary underline-offset-4 hover:underline"
             >
               {intl.formatMessage({ id: "footer.legal.terms" })}
             </Link>

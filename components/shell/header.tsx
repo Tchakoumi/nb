@@ -15,7 +15,7 @@ export function Header() {
         >
           <Image
             src="/icon-header.png"
-            alt="Nomad Braid"
+            alt=""
             width={32}
             height={40}
             className="h-9 w-auto"
